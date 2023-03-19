@@ -1,31 +1,31 @@
-import axios from "axios";
+import axios from 'axios';
 const instance = axios.create({
-    baseURL:
-        params: {
-        
-    },
+  baseURL: 'https://api.themoviedb.org/3',
+  params: {
+    api_key: '8e8c3d98d3e43f50386cf07b0bdc43af',
+  },
 });
 export const getTrending = async () => {
-    const { data } = await instance.get('/trending/movie/day');
-    return data.results;
+  const { data } = await instance.get('/trending/movie/day');
+  return data.results;
 };
 export const fetchMovieById = async id => {
-    const { data } = await instance.get(`/movie/${id}`);
-    return data;
-}
+  const { data } = await instance.get(`/movie/${id}`);
+  return data;
+};
 export const fetchMovieByQuery = async keyword => {
-    const { data } = await instance.get('/search/movie', {
-        params: {
-            query: keyword,
-        },
-    }),
-    return data.results;
+  const { data } = await instance.get('/search/movie', {
+    params: {
+      query: keyword,
+    },
+  });
+  return data.results;
 };
 export const getCast = async id => {
-    const { data } = await instance.get(`/movie/${id}/credits`);
-    return data.cast;
+  const { data } = await instance.get(`/movie/${id}/credits`);
+  return data.cast;
 };
-export const getReviews = asyncid => {
-    const { data } = await instance.get(`/movie/${id}/reviews`);
-    return data.results;
+export const getReviews = async id => {
+  const { data } = await instance.get(`/movie/${id}/reviews`);
+  return data.results;
 };
