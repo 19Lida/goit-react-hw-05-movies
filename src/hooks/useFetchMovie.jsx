@@ -4,7 +4,7 @@ import { fetchMovieById } from 'components/services/moviesAPI';
 
 export const useFetchMovie = () => {
   const [movie, setMovie] = useState(null);
-  const { id } = useParams;
+  const { id } = useParams();
   useEffect(() => {
     const fetchMovies = async () => {
       console.log(id);
