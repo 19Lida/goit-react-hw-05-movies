@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCast } from 'components/services/moviesAPI.js';
+import { getCast } from 'components/services/moviesAPI';
 
 const CastPage = () => {
   const [cast, setCast] = useState([]);
   const { id } = useParams();
+
   useEffect(() => {
     const fetchCast = async () => {
       try {
         const data = await getCast(id);
         setCast(data);
       } catch (error) {
-        // console.log(error.message);
+        console.log(error.message);
       }
     };
     fetchCast();
   }, [id]);
+
   const elements = cast.map(({ id, name, character, profile_path }) => (
     <li key={id}>
       {profile_path && (
@@ -29,6 +31,7 @@ const CastPage = () => {
       <p>{character}</p>
     </li>
   ));
+
   return (
     <ul>
       {elements.length === 0
@@ -37,4 +40,5 @@ const CastPage = () => {
     </ul>
   );
 };
+
 export default CastPage;

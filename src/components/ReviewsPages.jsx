@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { getReviews } from 'components/services/moviesAPI';
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
   const { id } = useParams();
+
   useEffect(() => {
     const fetchReviews = async () => {
+      console.log(id);
       try {
         const data = await getReviews(id);
         setReviews(data);
@@ -16,12 +19,14 @@ const ReviewsPage = () => {
     };
     fetchReviews();
   }, [id]);
+
   const elements = reviews.map(({ id, author, content }) => (
     <li key={id}>
       <h3>{author}</h3>
       <p>{content}</p>
     </li>
   ));
+
   return (
     <>
       <ul>
@@ -32,4 +37,5 @@ const ReviewsPage = () => {
     </>
   );
 };
+
 export default ReviewsPage;
