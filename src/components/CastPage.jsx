@@ -12,7 +12,7 @@ const CastPage = () => {
         const data = await getCast(id);
         setCast(data);
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
       }
     };
     fetchCast();

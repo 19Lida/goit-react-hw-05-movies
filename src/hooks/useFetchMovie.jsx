@@ -7,7 +7,7 @@ export const useFetchMovie = () => {
   const { id } = useParams();
   useEffect(() => {
     const fetchMovies = async () => {
-      console.log(id);
+      // console.log(id);
       try {
         const data = await fetchMovieById(id);
         setMovie(data);
