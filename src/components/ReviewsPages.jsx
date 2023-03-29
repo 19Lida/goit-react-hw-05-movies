@@ -9,7 +9,6 @@ const ReviewsPage = () => {
 
   useEffect(() => {
     const fetchReviews = async () => {
-      // console.log(id);
       try {
         const data = await getReviews(id);
         setReviews(data);

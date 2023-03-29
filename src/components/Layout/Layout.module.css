@@ -18,11 +18,6 @@
   display: flex;
 }
 
-/* export const Logo = styled.p`
-  font-weight: 700;
-  margin: 0;
-`; */
-
 .Link {
   padding: 8px 16px;
   border-radius: 4px;
